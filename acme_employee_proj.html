@@ -1,0 +1,56 @@
+<html>
+ <head>
+<style>
+.lucky {
+ background-color: red;
+}
+
+</style>
+ </head>
+ <body>
+   <h1>Acme Employees DOM</h1>
+   <ul id='list'>
+   </ul>
+   <div><p>Favorite: </p></div>
+ </body>
+ <script>
+//    const data = [
+//    {
+//      value: 7,
+//      isLucky: true
+//    },
+//    {
+//      value: 3
+//    },
+//    {
+//      value: 42,
+//      isLucky: true
+//    },
+//  ];
+const employees = [
+   { id: 1, name: 'moe'},
+   { id: 2, name: 'larry'},
+   { id: 4, name: 'shep'},
+   { id: 3, name: 'curly'},
+   { id: 5, name: 'groucho'},
+   { id: 6, name: 'harpo'},
+   { id: 8, name: 'shep Jr.'},
+   { id: 99, name: 'lucy'}
+ ];
+ const list = document.querySelector('#list');
+ employees.forEach( item => {
+   const li = document.createElement('li');
+   li.addEventListener('click', () => {
+     item.isLucky = !item.isLucky;;
+     li.classList.toggle('lucky');
+   });
+   if(item.isLucky) {
+     li.className = 'lucky';
+   }
+   const span = document.createElement('span');
+   span.innerHTML = item.name;
+   li.append(span);
+   list.append(li);
+ });
+ </script>
+</html>
